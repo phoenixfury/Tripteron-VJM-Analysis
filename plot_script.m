@@ -1,7 +1,7 @@
 clc;
-limit_x = 1.3;
-limit_y = 1.3;
-limit_z = 1.3;
+limit_x = 1.5;
+limit_y = 1.5;
+limit_z = 1.5;
 
 %% Defining the Transformations of the bases and Tools
 Tbase1 = eye(4);
@@ -9,8 +9,8 @@ Tbase2 = Tz(limit_z) * Rx( - pi/2 );
 Tbase3 = Ty(limit_y) * Ry( pi/2) * Rz( pi) ;
 
 Ttool1 = eye(4);
-Ttool2 = inv(Rx( - pi/2 ));
-Ttool3 = inv(Ry( pi/2)) * inv(Rz( pi)) ;
+Ttool2 = Rx( - pi/2 )';
+Ttool3 =  Rz( pi)' * Ry( pi/2)' ;
 
 %% forward and inverse kinematics
 % 
@@ -30,7 +30,7 @@ Ttool3 = inv(Ry( pi/2)) * inv(Rz( pi)) ;
 
 %% forward and inverse kinematics 2
 
-p_global = [.1, 1.3, .1];
+p_global = [1.3, .1, 1.3];
 [q1,dz] = IK_Tripton_PF_UP(Tbase1,Ttool1, p_global, 1);
 
 [q2,dy] = IK_Tripton_PF_UP(Tbase2,Ttool2, p_global, 2 );

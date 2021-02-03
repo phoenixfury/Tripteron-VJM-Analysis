@@ -12,7 +12,7 @@ Tbase3 = Ty(limit_y) * Ry( pi/2) * Rz( pi) ;
 
 Ttool1 = eye(4);
 Ttool2 = Rx( - pi/2 )';
-Ttool3 = Ry( pi/2)' * Rz( pi)' ;
+Ttool3 =  Rz( pi)' * Ry( pi/2)' ;
 
 
     %% Let's solve Inverse Kinematics for our Serial Chains of the Robot

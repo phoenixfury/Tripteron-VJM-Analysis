@@ -15,7 +15,7 @@ if leg_no ==1
 elseif leg_no ==2
     Tplat = Tx(0.1) ;
 else
-    Tplat =Tz(-0.1*sin(pi/6))*Ty(0.1*cos(pi/6));
+    Tplat = Tx(-0.1*sin(pi/6))*Ty(-0.1*cos(pi/6));
 end
 
   T_leg = Tbase * Tz(d) *Tz(theta(1))...
@@ -23,7 +23,7 @@ end
           *Tx(theta(2))*Ty(theta(3))*Tz(theta(4))*Rx(theta(5))*Ry(theta(6))*Rz(theta(7))...
           *Rz(q2) * Tx(L2)...
           *Tx(theta(8))*Ty(theta(9))*Tz(theta(10))*Rx(theta(11))*Ry(theta(12))*Rz(theta(13))...
-            *Rz(q3)*Tplat*Ttool ;
+            *Rz(q3) *Ttool *Tplat ;
 
 T1 = Tbase * Tz(d) * Rz(q1);
 

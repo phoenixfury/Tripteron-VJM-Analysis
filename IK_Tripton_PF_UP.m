@@ -6,17 +6,17 @@ L2 = 1;
 T = [eye(3) p_global' ; 0 0 0 1];
 %% Transformation from global to local
 if leg_no ==1
-   Tplat = Tx(-0.1*sin(pi/6))*Ty(0.1*cos(pi/6));
+   Tplat = inv(Ty(0.1*cos(pi/6)))*inv(Tx(-0.1*sin(pi/6)));
    d = p_global(3);
 elseif leg_no == 2
-    Tplat = Tx(0.1);
-    d = p_global(2);
+    Tplat = inv(Tx(0.1));
+    d = p_global(2) ;
 else
-    Tplat = Tz(-0.1*sin(pi/6))*Ty(0.1*cos(pi/6));
-    d = p_global(1)+ 0.05;
+    Tplat = inv(Ty(-0.1*cos(pi/6)))*inv(Tx(-0.1*sin(pi/6)));
+    d = p_global(1)+0.1*sin(pi/6);
 end
 
-Tloc = (Tbase\T)/Ttool/Tplat;
+Tloc = (Tbase\T)*Tplat/Ttool;
 %Tloc = inv(Tbase)*T*inv(Ttool)*inv(Tplat);
 x = Tloc(1,4);
 
