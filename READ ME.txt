@@ -1,0 +1,10 @@
+*The main loop is located in Main_1
+
+* Inverse kinematics is located in IK_Tripton_PF_UP
+
+*The forward kinematics of the VJM model is in the file FK_VJM
+
+* 2 functions for the 2 jacobians Jq & Jt
+
+* The main function of the VJM is called Kc_VJM which calls Kc_def to compute the stiffness matrix that
+is used to compute the deflection vector
